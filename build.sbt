@@ -172,6 +172,7 @@ lazy val zioConfig = crossProject(JSPlatform, JVMPlatform, NativePlatform)
     ),
     testFrameworks := Seq(new TestFramework("zio.test.sbt.ZTestFramework"))
   )
+  .jsSettings(jsSettings)
   .nativeSettings(nativeSettings)
 
 lazy val zioConfigJS = zioConfig.js
