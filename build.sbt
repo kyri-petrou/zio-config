@@ -162,7 +162,6 @@ lazy val zioConfig = crossProject(JSPlatform, JVMPlatform, NativePlatform)
   .enablePlugins(BuildInfoPlugin)
   .settings(buildInfoSettings("zio.config"))
   .settings(macroDefinitionSettings)
-  .settings(enableMimaSettings)
   .settings(
     libraryDependencies ++= Seq(
       "dev.zio"                %%% "zio"                     % zioVersion,
@@ -172,6 +171,7 @@ lazy val zioConfig = crossProject(JSPlatform, JVMPlatform, NativePlatform)
     ),
     testFrameworks := Seq(new TestFramework("zio.test.sbt.ZTestFramework"))
   )
+  .jvmSettings(enableMimaSettings)
   .jsSettings(jsSettings)
   .nativeSettings(nativeSettings)
 
